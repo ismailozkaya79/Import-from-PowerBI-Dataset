@@ -1,0 +1,10 @@
+let
+  TableName = "FCT_XXX_DB",                                                // 👈🏻 change that
+  PBIAddress = "powerbi://api.powerbi.com/v1.0/xxxx/xxxPrjMigrationxxx",   // 👈🏻 change that
+
+  Source = AnalysisServices.Database(PBIAddress, "A. Custom Forecast", [Query = "EVALUATE #(lf)TOPN(1000000,'"&TableName&"')"]),
+  SecondStep = Table.TransformColumnNames(Source, each Text.Replace(_,TableName, "")),
+  ThirdStep = Table.TransformColumnNames(SecondStep, each Text.Replace(_,"[", "")),
+  ForthStep = Table.TransformColumnNames(ThirdStep, each Text.Replace(_,"]", ""))
+in
+  ForthStep
