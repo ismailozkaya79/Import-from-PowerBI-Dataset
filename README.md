@@ -1,1 +1,2 @@
-# Import-from-PowerBI-Dataset
+# Import from PowerBI Dataset without Table Name Prefixes
+You can easily connect and import PowerBI dataset tables into your dataset by using PowerQuery, even if it is not the best practice. If you need to import data from another dataset, normally it will collect columns with prefixes derieved from table name. The code delivers practical solution to automatically remove unnecessary prefixes or brackets from column names.
